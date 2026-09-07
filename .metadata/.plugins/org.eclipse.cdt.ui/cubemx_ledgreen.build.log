@@ -1,0 +1,10 @@
+17:07:00 **** Incremental Build of configuration Debug for project cubemx_ledgreen ****
+make -j16 all 
+arm-none-eabi-size  cubemx_ledgreen.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10564	     32	   1744	  12340	   3034	cubemx_ledgreen.elf
+Finished building: default.size.stdout
+ 
+
+17:07:00 Build Finished. 0 errors, 0 warnings. (took 208ms)
+
