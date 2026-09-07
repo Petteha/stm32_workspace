@@ -79,34 +79,15 @@ static void MX_GPIO_Init(void);
 
 #define RCC_AHB2ENR (RCC_BASE + 0x4C)
 
-#define TIM2 		 (0x40000000U)
+#define TIM2 (0x40000000U)
 #define RCC_APB1ENR1 (TIM2 + 0x58U)
-#define TIM2_PSC 	 (TIM2 + 0x028U)
-#define TIM2_ARR 	 (TIM2 + 0x02CU)
-#define TIM2_CNT 	 (TIM2 + 0x024U)
-#define TIM2_SR 	 (TIM2 + 0x010U)
-#define TIM2_CR1 	 (TIM2 + 0x00U)
-
 
 int main(void)
 {
+
+
+
   /* USER CODE BEGIN 1 */
-
-	/* enable tim2 register*/
-	volatile uint32_t *enable_tim2 = (volatile uint32_t*)RCC_APB1ENR1;
-
-	enable_tim2 |= (1U << 0);
-
-	volatile uint32_t *tim2_PSC = (volatile uint32_t*)TIM2_PSC;
-
-	volatile uint32_t *tim2_ARR = (volatile uint32_t*)TIM2_ARR;
-
-	tim2_PSC = 15999U;
-	tim2_ARR = 999U;
-
-	volatile uint32_t *tim2_CR1 = (volatile uint32_t*)TIM2_CR1;
-
-	tim2_CR1 |= (1U << 0);
 
   /* USER CODE END 1
 
@@ -123,6 +104,9 @@ int main(void)
 
 	volatile uint32_t *GPIOA5_ODR = (volatile uint32_t *)GPIO_ODR;
 
+	/* enable tim2 register*/
+	volatile uint32_t *enable_tim2 = (volatile uint32_t*)RCC_APB1ENR1;
+	enable_tim2 |= (1U << 0);
 
 	  HAL_Init();
 
