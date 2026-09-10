@@ -21,31 +21,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 
-/* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
-
-
-/**GPIOA5_BSRR |= (1U << 5);  */
-
-/* USER CODE END Includes */
-
-/* Private typedef -----------------------------------------------------------*/
-/* USER CODE BEGIN PTD */
-
-/* USER CODE END PTD */
-
-/* Private define ------------------------------------------------------------*/
-/* USER CODE BEGIN PD */
-
-/* USER CODE END PD */
-
-/* Private macro -------------------------------------------------------------*/
-/* USER CODE BEGIN PM */
-
-/* USER CODE END PM */
-
-/* Private variables ---------------------------------------------------------*/
-
 COM_InitTypeDef BspCOMInit;
 
 /* USER CODE BEGIN PV */
@@ -70,43 +45,125 @@ static void MX_GPIO_Init(void);
   */
 
 #define GPIO_BASE (0x48000000U)
-
 #define ODR_OFFSET (0x14U)
-
 #define GPIO_ODR (0x48000000U + ODR_OFFSET)
-
 #define RCC_BASE (0x40021000U)
-
 #define RCC_AHB2ENR (RCC_BASE + 0x4C)
 
 #define TIM2 		 (0x40000000U)
-#define RCC_APB1ENR1 (TIM2 + 0x58U)
+#define RCC_APB1ENR1 (RCC_BASE + 0x58U)
 #define TIM2_PSC 	 (TIM2 + 0x028U)
 #define TIM2_ARR 	 (TIM2 + 0x02CU)
 #define TIM2_CNT 	 (TIM2 + 0x024U)
 #define TIM2_SR 	 (TIM2 + 0x010U)
 #define TIM2_CR1 	 (TIM2 + 0x00U)
+#define TIM2_EGR     (TIM2 + 0x014U)
+#define TIM2_DIER    (TIM2 + 0x00CU)
 
+#define NVIC_BASE           (0xE000E100U)
+
+
+/* void delay_ms(uint32_t milliseconds)
+	{
+		volatile uint32_t *tim2_SR =(volatile uint32_t *)TIM2_SR;
+	    uint32_t elapsed = 0;
+
+	    volatile uint32_t *CNT = (volatile uint32_t*)TIM2_CNT;
+
+	    while (elapsed < milliseconds)
+	    {
+
+	    	if ((*tim2_SR & (1U << 0)) != 0) {
+	    		elapsed = elapsed + 1;
+	    		*tim2_SR &= ~(1U << 0);
+	    	}
+	    }
+	}
+*/
+
+volatile uint32_t irq_count = 0;
+
+void TIM2_IRQHandler(void)
+{
+	volatile uint32_t *LED2_GREEN = (volatile uint32_t *)GPIO_ODR;
+
+	volatile uint32_t *tim2_SR = (volatile uint32_t*)TIM2_SR;
+
+	if ((*tim2_SR & (1U << 0)) != 0) {
+			*tim2_SR &= ~(1U << 0);   // clear UIF first
+
+			irq_count++;
+
+			if (irq_count == 500)
+			{
+				*LED2_GREEN |= (1U << 5);
+			}
+
+			if (irq_count >= 1000)
+			{
+				*LED2_GREEN &= ~(1U << 5);
+				irq_count = 0;
+			}
+		}
+}
 
 int main(void)
 {
-  /* USER CODE BEGIN 1 */
+
+	  HAL_Init();
+
+	  /* Configure the system clock */
+	  SystemClock_Config();
+
 
 	/* enable tim2 register*/
+	/*
+	 1. Enable TM2 Clock
+	 2. Set PSC
+	 3. Set ARR
+	 4. Set CNT = 0
+	 5. SET EGR = 1
+	 */
 	volatile uint32_t *enable_tim2 = (volatile uint32_t*)RCC_APB1ENR1;
 
-	enable_tim2 |= (1U << 0);
+	*enable_tim2 |= (1U << 0);
 
 	volatile uint32_t *tim2_PSC = (volatile uint32_t*)TIM2_PSC;
 
 	volatile uint32_t *tim2_ARR = (volatile uint32_t*)TIM2_ARR;
 
-	tim2_PSC = 15999U;
-	tim2_ARR = 999U;
+	*tim2_PSC = 169U;
+	*tim2_ARR = 999U;
+
+	volatile uint32_t *tim2_CNT = (volatile uint32_t*)TIM2_CNT;
+
+	*tim2_CNT = 0U;
+
+	volatile uint32_t *tim2_EGR = (volatile uint32_t*)TIM2_EGR;
 
 	volatile uint32_t *tim2_CR1 = (volatile uint32_t*)TIM2_CR1;
 
-	tim2_CR1 |= (1U << 0);
+	volatile uint32_t *tim2_SR = (volatile uint32_t*)TIM2_SR;
+
+	*tim2_EGR = (1U << 0);    // force update
+	*tim2_SR &= ~(1U << 0);   // clear UIF caused by UG
+	/*
+	 Enable UIE (bit 0) in TIM2_DIER - Update interrupt enable
+	*/
+
+	volatile uint32_t *tim2_DIER = (volatile uint32_t*)TIM2_DIER;
+
+	*tim2_DIER |= (1U << 0);
+
+	/* Enable Global TIM2 Interrupt in NVIC_ISER*/
+
+	volatile uint32_t *NVIC_ISER = (volatile uint32_t*)NVIC_BASE;
+
+	*NVIC_ISER = (1U << 28);
+
+	*tim2_CR1 &= ~(1U << 3);   // OPM = 0
+	*tim2_CR1 &= ~(1U << 1);   // UDIS = 0
+	*tim2_CR1 |=  (1U << 0);   // CEN = 1
 
   /* USER CODE END 1
 
@@ -121,17 +178,9 @@ int main(void)
 
 	volatile uint32_t *GPIO_MODER_PTR = (volatile uint32_t *)GPIO_BASE;
 
-	volatile uint32_t *GPIOA5_ODR = (volatile uint32_t *)GPIO_ODR;
-
-
-	  HAL_Init();
-
-
-
+	volatile uint32_t *LED2_GREEN = (volatile uint32_t *)GPIO_ODR;
 
 	*GPIOAEN |= (1U << 0);
-
-	(void)*GPIOAEN;
 
 	/* needed to clear bits to 0, "|=" can only set bits to 1. */
 
@@ -140,22 +189,7 @@ int main(void)
 	/* ------ */
 
 	*GPIO_MODER_PTR |= (0b01U << (5 * 2));
-
-	*GPIOA5_ODR |= (1U << 5);
-
-	while (1)
-	{
-		*GPIOA5_ODR |= (1U << 5);
-		HAL_Delay(1000);
-		*GPIOA5_ODR &= ~(1U << 5);  // clear bit 5
-		HAL_Delay(1000);
-	};
-
-
   /* USER CODE END Init */
-
-  /* Configure the system clock */
-  SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
 
@@ -191,6 +225,17 @@ int main(void)
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
+
+
+  while (1)
+  	{
+  		/*
+  		*GPIOA5_ODR |= (1U << 5);
+  		delay_ms(1000);
+  		*GPIOA5_ODR &= ~(1U << 5);  // clear bit 5
+  		delay_ms(1000);
+  		*/
+  	};
 }
 
 /**

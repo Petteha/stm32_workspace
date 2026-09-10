@@ -61,8 +61,8 @@ all: main-build
 main-build: cubemx_blink.elf secondary-outputs
 
 # Tool invocations
-cubemx_blink.elf cubemx_blink.map: $(OBJS) $(USER_OBJS) C:\Users\Peter\Desktop\stm32_workspace\cubemx_blink\STM32G491RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "cubemx_blink.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Peter\Desktop\stm32_workspace\cubemx_blink\STM32G491RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="cubemx_blink.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+cubemx_blink.elf cubemx_blink.map: $(OBJS) $(USER_OBJS) C:\Users\Peter\Desktop\stm32_workspace\stm32_workspace\cubemx_blink\STM32G491RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "cubemx_blink.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Peter\Desktop\stm32_workspace\stm32_workspace\cubemx_blink\STM32G491RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="cubemx_blink.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
