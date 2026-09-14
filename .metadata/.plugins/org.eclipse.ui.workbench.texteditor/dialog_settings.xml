@@ -3,6 +3,9 @@
 	<section name="java.lang.Class">
 		<item key="replaceBarOpen" value="false"/>
 		<list key="findhistory">
+			<item value="writepin"/>
+			<item value="HAL_tim_base_start"/>
+			<item value="reset"/>
 			<item value="w"/>
 			<item value="led_green"/>
 			<item value="mx_gpio"/>
