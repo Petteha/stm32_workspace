@@ -913,3 +913,276 @@ COM9
 
 !ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-07 14:20:40.854
 !MESSAGE port: COM9
+!SESSION 2026-09-12 17:44:39.571 -----------------------------------------------
+eclipse.buildId=Version 2.2.0
+java.version=21.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=sv_SE
+Framework arguments:  C:\Users\Peter\Desktop\stm32_workspace\testdisplay_lcd1602\.cproject
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\Peter\Desktop\stm32_workspace\testdisplay_lcd1602\.cproject
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-09-12 17:44:49.711
+!MESSAGE Log4j2 initialized with config file C:\Users\Peter\Desktop\stm32_workspace\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-09-12 17:44:56.608
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-09-12 17:45:02.314
+!MESSAGE Indexed 'cubemx_blink' (24 sources, 118 headers) in 3,04 sec: 10 909 declarations; 46 612 references; 3 unresolved inclusions; 46 syntax errors; 170 unresolved names (0,29 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-09-12 17:45:04.232
+!MESSAGE Indexed 'cubemx_ledgreen' (24 sources, 118 headers) in 1,9 sec: 10 892 declarations; 46 549 references; 3 unresolved inclusions; 47 syntax errors; 170 unresolved names (0,3 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-09-12 17:45:06.260
+!MESSAGE Indexed 'testdisplay_lcd1602' (24 sources, 118 headers) in 2 sec: 10 896 declarations; 46 781 references; 3 unresolved inclusions; 46 syntax errors; 169 unresolved names (0,29 %)
+!SESSION 2026-09-14 14:02:27.192 -----------------------------------------------
+eclipse.buildId=Version 2.2.0
+java.version=21.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=sv_SE
+Framework arguments:  C:\Users\Peter\Desktop\stm32_workspace\dht11_test\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\Peter\Desktop\stm32_workspace\dht11_test\.project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-09-14 14:02:37.897
+!MESSAGE Log4j2 initialized with config file C:\Users\Peter\Desktop\stm32_workspace\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-09-14 14:03:08.571
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-14 14:03:58.232
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+COM10
+COM5
+COM7
+COM3
+COM6
+COM4
+COM8
+COM9
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-14 14:03:58.233
+!MESSAGE port: COM10
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-14 14:03:58.234
+!MESSAGE port: COM5
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-14 14:03:58.234
+!MESSAGE port: COM7
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-14 14:03:58.234
+!MESSAGE port: COM3
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-14 14:03:58.236
+!MESSAGE port: COM6
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-14 14:03:58.237
+!MESSAGE port: COM4
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-14 14:03:58.238
+!MESSAGE port: COM8
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-14 14:03:58.240
+!MESSAGE port: COM9
+!SESSION 2026-09-14 14:08:42.561 -----------------------------------------------
+eclipse.buildId=Version 2.2.0
+java.version=21.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=sv_SE
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-09-14 14:09:06.240
+!MESSAGE Log4j2 initialized with config file C:\Users\Peter\Desktop\stm32_workspace\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-09-14 14:09:29.335
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2026-09-14 14:09:47.175 -----------------------------------------------
+eclipse.buildId=Version 2.2.0
+java.version=21.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=sv_SE
+Framework arguments:  C:\Users\Peter\Desktop\stm32_workspace\dht11_test\.cproject
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\Peter\Desktop\stm32_workspace\dht11_test\.cproject
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-09-14 14:10:00.682
+!MESSAGE Log4j2 initialized with config file C:\Users\Peter\Desktop\stm32_workspace\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-09-14 14:10:24.234
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-09-14 14:21:52.549
+!MESSAGE Indexed 'cubemx_blink' (24 sources, 118 headers) in 2,47 sec: 10 909 declarations; 46 614 references; 3 unresolved inclusions; 46 syntax errors; 169 unresolved names (0,29 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-09-14 14:21:54.047
+!MESSAGE Indexed 'cubemx_ledgreen' (24 sources, 118 headers) in 1,49 sec: 10 892 declarations; 46 554 references; 3 unresolved inclusions; 46 syntax errors; 169 unresolved names (0,29 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-09-14 14:21:55.275
+!MESSAGE Indexed 'dht11_test' (24 sources, 118 headers) in 1,22 sec: 10 893 declarations; 46 576 references; 3 unresolved inclusions; 46 syntax errors; 169 unresolved names (0,29 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-09-14 14:21:57.353
+!MESSAGE Indexed 'testdisplay_lcd1602' (24 sources, 118 headers) in 1,1 sec: 10 896 declarations; 46 781 references; 3 unresolved inclusions; 46 syntax errors; 169 unresolved names (0,29 %)
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-14 14:22:15.668
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+COM10
+COM5
+COM7
+COM3
+COM6
+COM4
+COM8
+COM9
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-14 14:22:15.668
+!MESSAGE port: COM10
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-14 14:22:15.668
+!MESSAGE port: COM5
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-14 14:22:15.669
+!MESSAGE port: COM7
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-14 14:22:15.669
+!MESSAGE port: COM3
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-14 14:22:15.669
+!MESSAGE port: COM6
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-14 14:22:15.670
+!MESSAGE port: COM4
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-14 14:22:15.670
+!MESSAGE port: COM8
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-14 14:22:15.670
+!MESSAGE port: COM9
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 4 1002 2026-09-14 16:11:12.224
+!MESSAGE Unable to read repository at https://download.eclipse.org/tools/cdt/releases/latest/compositeContent.xml.
+!STACK 0
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:401)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:434)
+	at java.net.http/jdk.internal.net.http.SocketTube.readAvailable(SocketTube.java:1178)
+	at java.net.http/jdk.internal.net.http.SocketTube$InternalReadPublisher$InternalReadSubscription.read(SocketTube.java:841)
+	at java.net.http/jdk.internal.net.http.SocketTube$SocketFlowTask.run(SocketTube.java:181)
+	at java.net.http/jdk.internal.net.http.common.SequentialScheduler$SchedulableTask.run(SequentialScheduler.java:207)
+	at java.net.http/jdk.internal.net.http.common.SequentialScheduler.runOrSchedule(SequentialScheduler.java:280)
+	at java.net.http/jdk.internal.net.http.common.SequentialScheduler.runOrSchedule(SequentialScheduler.java:233)
+	at java.net.http/jdk.internal.net.http.SocketTube$InternalReadPublisher$InternalReadSubscription.signalReadable(SocketTube.java:782)
+	at java.net.http/jdk.internal.net.http.SocketTube$InternalReadPublisher$ReadEvent.signalEvent(SocketTube.java:965)
+	at java.net.http/jdk.internal.net.http.SocketTube$SocketFlowEvent.handle(SocketTube.java:253)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl$SelectorManager.handleEvent(HttpClientImpl.java:1477)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl$SelectorManager.lambda$run$3(HttpClientImpl.java:1422)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl$SelectorManager.run(HttpClientImpl.java:1422)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-09-14 18:07:35.296
+!MESSAGE Indexed 'cubemx_blink' (24 sources, 118 headers) in 1,01 sec: 10 909 declarations; 46 614 references; 3 unresolved inclusions; 46 syntax errors; 169 unresolved names (0,29 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-09-14 18:07:36.125
+!MESSAGE Indexed 'cubemx_ledgreen' (24 sources, 118 headers) in 0,825 sec: 10 892 declarations; 46 554 references; 3 unresolved inclusions; 46 syntax errors; 169 unresolved names (0,29 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-09-14 18:07:37.151
+!MESSAGE Indexed 'dht11_test' (26 sources, 121 headers) in 1,02 sec: 12 969 declarations; 72 368 references; 3 unresolved inclusions; 46 syntax errors; 169 unresolved names (0,2 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-09-14 18:07:37.910
+!MESSAGE Indexed 'testdisplay_lcd1602' (24 sources, 118 headers) in 0,755 sec: 10 896 declarations; 46 781 references; 3 unresolved inclusions; 46 syntax errors; 169 unresolved names (0,29 %)
+!SESSION 2026-09-14 18:08:03.732 -----------------------------------------------
+eclipse.buildId=Version 2.2.0
+java.version=21.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=sv_SE
+Framework arguments:  C:\Users\Peter\Desktop\stm32_workspace\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\Peter\Desktop\stm32_workspace\.project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-09-14 18:12:01.977
+!MESSAGE Log4j2 initialized with config file C:\Users\Peter\Desktop\stm32_workspace\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-09-14 18:12:20.161
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-09-14 18:12:23.034
+!MESSAGE Indexed 'cubemx_blink' (24 sources, 118 headers) in 2,77 sec: 10 909 declarations; 46 603 references; 3 unresolved inclusions; 46 syntax errors; 169 unresolved names (0,29 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-09-14 18:12:25.276
+!MESSAGE Indexed 'cubemx_ledgreen' (24 sources, 118 headers) in 2,22 sec: 10 892 declarations; 46 555 references; 3 unresolved inclusions; 46 syntax errors; 169 unresolved names (0,29 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-09-14 18:12:27.591
+!MESSAGE Indexed 'dht11_test' (26 sources, 121 headers) in 2,31 sec: 12 973 declarations; 72 433 references; 3 unresolved inclusions; 46 syntax errors; 174 unresolved names (0,2 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-09-14 18:12:29.547
+!MESSAGE Indexed 'testdisplay_lcd1602' (24 sources, 118 headers) in 1,93 sec: 10 896 declarations; 46 780 references; 3 unresolved inclusions; 46 syntax errors; 170 unresolved names (0,29 %)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.launch 2 0 2026-09-14 18:12:38.745
+!MESSAGE Won't launch debug session since we failed to locate the binary.
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-14 18:12:45.956
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+COM10
+COM5
+COM7
+COM3
+COM6
+COM4
+COM8
+COM9
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-14 18:12:45.956
+!MESSAGE port: COM10
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-14 18:12:45.957
+!MESSAGE port: COM5
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-14 18:12:45.957
+!MESSAGE port: COM7
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-14 18:12:45.957
+!MESSAGE port: COM3
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-14 18:12:45.958
+!MESSAGE port: COM6
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-14 18:12:45.958
+!MESSAGE port: COM4
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-14 18:12:45.958
+!MESSAGE port: COM8
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-14 18:12:45.959
+!MESSAGE port: COM9
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.launch 2 0 2026-09-14 18:13:06.485
+!MESSAGE Won't launch debug session since we failed to locate the binary.
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.launch 2 0 2026-09-14 18:13:57.179
+!MESSAGE Won't launch debug session since we failed to locate the binary.
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.launch 2 0 2026-09-14 18:14:14.029
+!MESSAGE Won't launch debug session since we failed to locate the binary.
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-09-14 18:26:51.657
+!MESSAGE Indexed 'cubemx_blink' (24 sources, 118 headers) in 1,16 sec: 10 909 declarations; 46 603 references; 3 unresolved inclusions; 46 syntax errors; 169 unresolved names (0,29 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-09-14 18:26:52.424
+!MESSAGE Indexed 'cubemx_ledgreen' (24 sources, 118 headers) in 0,764 sec: 10 892 declarations; 46 555 references; 3 unresolved inclusions; 46 syntax errors; 169 unresolved names (0,29 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-09-14 18:26:53.347
+!MESSAGE Indexed 'dht11_test' (26 sources, 121 headers) in 0,912 sec: 12 969 declarations; 72 370 references; 3 unresolved inclusions; 46 syntax errors; 169 unresolved names (0,2 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-09-14 18:26:54.091
+!MESSAGE Indexed 'testdisplay_lcd1602' (24 sources, 118 headers) in 0,743 sec: 10 896 declarations; 46 780 references; 3 unresolved inclusions; 46 syntax errors; 170 unresolved names (0,29 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-09-14 18:31:03.727
+!MESSAGE Indexed 'cubemx_blink' (24 sources, 118 headers) in 0,784 sec: 10 909 declarations; 46 603 references; 3 unresolved inclusions; 46 syntax errors; 169 unresolved names (0,29 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-09-14 18:31:04.472
+!MESSAGE Indexed 'cubemx_ledgreen' (24 sources, 118 headers) in 0,743 sec: 10 892 declarations; 46 555 references; 3 unresolved inclusions; 46 syntax errors; 169 unresolved names (0,29 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-09-14 18:31:05.403
+!MESSAGE Indexed 'dht11_test' (26 sources, 121 headers) in 0,929 sec: 12 980 declarations; 72 509 references; 3 unresolved inclusions; 46 syntax errors; 169 unresolved names (0,2 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-09-14 18:31:06.185
+!MESSAGE Indexed 'testdisplay_lcd1602' (24 sources, 118 headers) in 0,78 sec: 10 896 declarations; 46 780 references; 3 unresolved inclusions; 46 syntax errors; 170 unresolved names (0,29 %)
