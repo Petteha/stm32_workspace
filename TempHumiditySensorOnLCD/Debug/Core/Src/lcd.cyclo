@@ -1,0 +1,7 @@
+../Core/Src/lcd.c:6:6:LCD_Init	1
+../Core/Src/lcd.c:45:6:LCD_WriteString	2
+../Core/Src/lcd.c:59:6:LCD_SendByte	1
+../Core/Src/lcd.c:75:6:LCD_SecondLine	1
+../Core/Src/lcd.c:81:6:LCD_Clear	1
+../Core/Src/lcd.c:87:6:LCD_PulseEnable	1
+../Core/Src/lcd.c:100:6:LCD_Send4Bits	5

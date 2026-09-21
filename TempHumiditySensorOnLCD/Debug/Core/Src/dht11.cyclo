@@ -1,0 +1,8 @@
+../Core/Src/dht11.c:12:6:DHT_SetOutput	1
+../Core/Src/dht11.c:23:6:DHT_SetInput	1
+../Core/Src/dht11.c:33:9:DHT_ReadBit	3
+../Core/Src/dht11.c:53:6:DHT_ReadData	3
+../Core/Src/dht11.c:71:6:DHT_CheckInit	7
+../Core/Src/dht11.c:124:6:DHT_CheckHighLow	3
+../Core/Src/dht11.c:133:6:DHT_Checksum	3
+../Core/Src/dht11.c:150:6:DHT_Transaction	3
