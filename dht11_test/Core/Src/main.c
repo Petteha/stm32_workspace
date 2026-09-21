@@ -62,9 +62,12 @@ static void MX_TIM6_Init(void);
 
 void DHT_SetOutput();
 void DHT_SetInput();
-void DHT_ReadData();
+void DHT_ReadData(uint8_t *data);
+uint8_t DHT_ReadBit();
 void DHT_Transaction();
-void DHT_CheckInit();
+bool DHT_CheckInit();
+bool DHT_CheckHighLow(uint32_t value);
+bool DHT_Checksum(uint8_t *data);
 
 
 void DHT_SetOutput() {
@@ -88,42 +91,72 @@ void DHT_SetInput(){
 	HAL_GPIO_Init(dht_data_GPIO_Port, &GPIO_InitStruct);
 }
 
-void DHT_ReadData(){
+uint8_t DHT_ReadBit(){
 
+	// Loop while DATA is LOW
+	while ((HAL_GPIO_ReadPin(dht_data_GPIO_Port, dht_data_Pin) == GPIO_PIN_RESET))	{
+	}
+	//RESET when DATA turns HIGH
+	_HAL_TIM_SET_COUNTER(&htim6, 0);
 
-	while (HAL_GPIO_ReadPin(dht_data_GPIO_Port, dht_data_Pin) == GPIO_PIN_RESET)
-	{
-	    // We're still LOW, so keep waiting
+	//LOOP to count microseconds on HIGH
+	while ((HAL_GPIO_ReadPin(dht_data_GPIO_Port, dht_data_Pin) == GPIO_PIN_SET))	{
+			}
+
+	if (_HAL_TIM_GET_COUNTER(&htim6) > 45){
+		return 1;
+	} else {
+		return 0;
 	}
 }
 
-void DHT_CheckInit() {
+void DHT_ReadData(uint8_t *data){
+
+	for (int i = 0; i < 5; i++){
+
+		// building the byte.
+		uint8_t byte = 0;
+
+		// Loop 8 times per byte of data
+		for (int y = 0; y < 8; y++){
+			byte = (byte << 1) | DHT_ReadBit();
+		}
+
+		// store the data in array
+		data[i] = byte;
+	}
+
+}
+
+bool DHT_CheckInit() {
+
 	uint32_t timeout = 10000; // in milliseconds
-	uint32_t micro_timer = 0;
+
+	// The DHT11 sends a low-high-low signal before sending data for
+	// Measuring the duration of these signals are done to determine whether its functioning properly
 
 	// initialize microsecond timer and start measuring low
 		HAL_TIM_Base_Start(&htim6);
-		_HAL_SET_TIM_COUNTER(&htim6,0);
+		_HAL_TIM_SET_COUNTER(&htim6,0);
 
 	uint32_t start = HAL_GetTick();
 	while ((HAL_GPIO_ReadPin(dht_data_GPIO_Port, dht_data_Pin) == GPIO_PIN_RESET)
 			&& ((HAL_GetTick() - start) <= timeout))	{
 		}
-	// Measure pc10 low duration
-		DHT_CheckHighLow(_HAL_GET_TIM_COUNTER(&htim6));
+
 	// Code for start measuring high
-		_HAL_SET_TIM_COUNTER(&htim6,0);
-
-
+		_HAL_TIM_SET_COUNTER(&htim6,0);
 
 	start = HAL_GetTick();
 	while ((HAL_GPIO_ReadPin(dht_data_GPIO_Port, dht_data_Pin) == GPIO_PIN_SET)
 			&& ((HAL_GetTick() - start) <= timeout))	{
 		}
 	// Measure pc10 high duration
-		DHT_CheckHighLow(_HAL_GET_TIM_COUNTER(&htim6));
+		if (!DHT_CheckHighLow(_HAL_TIM_GET_COUNTER(&htim6))){
+				return false;
+			}
 	// Code for start measuring low
-		_HAL_SET_TIM_COUNTER(&htim6,0);
+		_HAL_TIM_SET_COUNTER(&htim6,0);
 
 
 	start = HAL_GetTick();
@@ -131,17 +164,38 @@ void DHT_CheckInit() {
 			&& ((HAL_GetTick() - start) <= timeout))	{
 		}
 	// Measure pc10 low duration
-		DHT_CheckHighLow(_HAL_GET_TIM_COUNTER(&htim6));
+		if (!DHT_CheckHighLow(_HAL_TIM_GET_COUNTER(&htim6))){
+				return false;
+			}
 
+		// If all three checks pass, return true and begin reading data from DHT11
+		return true;
 }
 
 bool DHT_CheckHighLow(uint32_t value){
 
 	if(value >= 60 && value <= 100){
-		return True;
+		return true;
 	} else {
-		return False;
+		return false;
 	}
+}
+
+bool DHT_Checksum(uint8_t *data)
+{
+    uint8_t checksum = 0;
+
+    for (int i = 0; i < 4; i++)
+    {
+        checksum = checksum + data[i];
+    }
+
+    if (checksum == data[4])
+    {
+        return true;
+    }
+
+    return false;
 }
 
 void DHT_Transaction(){
@@ -150,13 +204,24 @@ void DHT_Transaction(){
 	DHT_SetOutput();
 	//Write low
 	HAL_GPIO_WritePin(dht_data_GPIO_Port, dht_data_Pin, GPIO_PIN_RESET);
-	// Wait 18 ms
+	// Wait 18 milliseconds
 	HAL_Delay(18);
-	// Configura pc10 as input
+	// Configure pc10 as input
 	DHT_SetInput();
-	// Read response
-	DHT_CheckInit();
-	// Return text / print on lcd display
+	// Read response if initialization is ok
+	uint8_t *data[5];
+
+	if(DHT_CheckInit()){
+		// Return text / print on lcd display
+		DHT_ReadData(data);
+
+	} else {
+		return 0;
+	}
+
+	if (DHT_Checksum(data)){
+		// Start sending data to LCD?
+	}
 
 
 }

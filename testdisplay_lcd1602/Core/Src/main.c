@@ -28,6 +28,8 @@ void LCD_WriteString(const char *text);
 void LCD_SendByte(uint8_t value);
 void LCD_PulseEnable(void);
 void LCD_Send4Bits(uint8_t value);
+void LCD_SecondLine();
+void LCD_Clear();
 
 /* USER CODE END Includes */
 
@@ -138,6 +140,18 @@ void LCD_SendByte(uint8_t value)
 	LCD_PulseEnable();
 }
 
+void LCD_SecondLine()
+{
+    HAL_GPIO_WritePin(lcd_rs_GPIO_Port, lcd_rs_Pin, GPIO_PIN_RESET);
+    LCD_SendByte(0xC0);
+}
+
+void LCD_Clear(){
+	HAL_GPIO_WritePin(lcd_rs_GPIO_Port, lcd_rs_Pin, GPIO_PIN_RESET);
+	LCD_SendByte(0x01);
+	HAL_Delay(2);
+}
+
 void LCD_PulseEnable(void)
 {
     HAL_GPIO_WritePin(lcd_e_GPIO_Port, lcd_e_Pin, GPIO_PIN_SET);
@@ -213,9 +227,6 @@ int main(void)
   /* USER CODE BEGIN 2 */
   LCD_Init();
 
-  LCD_WriteString("HELLO BABA");
-
-  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
 
   /* USER CODE END 2 */
 
@@ -237,10 +248,12 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  LCD_Clear();
+	  LCD_WriteString("HELLO BABA");
+	  LCD_SecondLine();
+	  LCD_WriteString("WHISKY");
 
-    /* USER CODE END WHILE */
-
-    /* USER CODE BEGIN 3 */
+	  HAL_Delay(1000);
   }
   /* USER CODE END 3 */
 }
